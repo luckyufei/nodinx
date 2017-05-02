@@ -1,24 +1,76 @@
-# nodinx
-use nodejs to implete nginx  features, includes proxy, upstream, phase etc. 
+![](https://raw.githubusercontent.com/eggjs/egg/master/docs/assets/egg-logo.png)
 
-> 想法产生于2016.07.21 
+Born to build better enterprise frameworks and apps
 
-突然产生一个很好的想法, 那就是用nodejs实现nginx的核心功能, 包括负载均衡, 发向代理. 更妙的是, 要本开发nodinx的过程和维护公司的wapstatic服务器结合在一起. 大致工作分成如下几个阶段: 
+[![NPM version][npm-image]][npm-url]
+[![build status][travis-image]][travis-url]
+[![Test coverage][codecov-image]][codecov-url]
+[![David deps][david-image]][david-url]
+[![Known Vulnerabilities][snyk-image]][snyk-url]
+[![NPM download][download-image]][download-url]
+[![Gitter][gitter-image]][gitter-url]
 
-- 第一阶段: 替换wapstatic nginx
+[npm-image]: https://img.shields.io/npm/v/egg.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/egg
+[travis-image]: https://img.shields.io/travis/eggjs/egg.svg?style=flat-square
+[travis-url]: https://travis-ci.org/eggjs/egg
+[codecov-image]: https://codecov.io/gh/eggjs/egg/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/eggjs/egg
+[david-image]: https://img.shields.io/david/eggjs/egg.svg?style=flat-square
+[david-url]: https://david-dm.org/eggjs/egg
+[snyk-image]: https://snyk.io/test/npm/egg/badge.svg?style=flat-square
+[snyk-url]: https://snyk.io/test/npm/egg
+[download-image]: https://img.shields.io/npm/dm/egg.svg?style=flat-square
+[download-url]: https://npmjs.org/package/egg
+[gitter-image]: https://img.shields.io/gitter/room/eggjs/egg.svg?style=flat-square
+[gitter-url]: https://gitter.im/eggjs/egg
 
-撤掉wapstatic上的nginx服务器, 用nodejs处理所有的请求, 包括静态文件访问, 文件上传, 反向代理. 使用pm2来管理所有的进程.
+## Installation
 
-然后对所有的请求加上监控,  比如上传文件的请求, 所有数据都存储到mongodb和redis中.  通过实现一个web app来访问这些所有的数据.  比如每天上传了多少个文件, 文件大小, 类型, 下载了多少个文件. 
+```bash
+$ npm install egg --save
+```
 
-- 第二个阶段: 核心功能实现
+Node.js >= 6.0.0 required.
 
-简单支持nginx的如下几个配置: 
+## Features
 
-location支持, upstream支持, proxy_pass支持.  也包括静态资源的支持. 
+- ✔︎ Built-in process management
+- ✔︎ Plugin system
+- ✔︎ Framework customization
+- ✔︎ Lots of [plugins](https://github.com/search?q=topic%3Aegg-plugin&type=Repositories)
 
-- 第三阶段: phase实现
+## Docs & Community
 
-支持nginx的11个phase.  刚开始可以只支持几个phase: 如rewrite, access, content.
-到了这个阶段, 就需要实现自己的nodejs服务器框架了.  可以参考express, koa, restify 
+- [Website && Documentations](https://eggjs.org)
+- [Plugins](https://github.com/search?q=topic%3Aegg-plugin&type=Repositories)
+- [Frameworks](https://github.com/search?q=topic%3Aegg-framework&type=Repositories)
 
+> All the documentations (comments, README, etc.) are in English, except the tutorials and api documentations are still [being translated](https://github.com/eggjs/egg/issues/363).
+> Feel free to join us and translate egg documentations. It's appreciated.
+
+## Getting Started
+
+Follow the commands listed below.
+
+```bash
+$ npm install egg-init -g
+$ egg-init --type simple showcase && cd showcase
+$ npm install
+$ npm run dev
+$ open http://localhost:7001
+```
+
+## Examples
+
+See [egg-examples](https://github.com/eggjs/examples).
+
+## How to Contribute
+
+Please let us know how can we help. Do check out [issues](https://github.com/eggjs/egg/issues) for bug reports or suggestions first.
+
+To become a contributor, please follow our [contributing guide](CONTRIBUTING.md).
+
+## License
+
+[MIT](LICENSE)
